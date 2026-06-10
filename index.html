@@ -343,6 +343,145 @@
   .mobile-nav-tab:hover { color: var(--gold); transform: translateX(4px); }
   .mobile-nav-tab.active { color: var(--gold); font-weight: 700; }
 
+  /* COVER */
+  .cover {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .cover.lifted { transform: translateY(-100%); pointer-events: none; }
+  .cover-body {
+    flex: 1; display: flex;
+    align-items: center; justify-content: center;
+    padding: 0 6rem;
+  }
+  .cover-left {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center;
+    padding-right: 4rem;
+    border-right: 1px solid rgba(201,168,76,0.2);
+  }
+  .cover-logo-group { display: inline-flex; flex-direction: column; align-items: center; }
+  .cover-logotype { display: flex; align-items: baseline; gap: 8px; }
+  .cover-whats { font-family: 'Great Vibes', cursive; color: var(--black); font-size: 64px; line-height: 1; }
+  .cover-bet {
+    font-family: 'Cormorant Garamond', serif; font-weight: 700;
+    color: var(--gold); font-size: 46px; letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 3px; line-height: 1;
+  }
+  .cover-tagline {
+    font-family: 'Inter', sans-serif; font-size: 10px; color: #aaa;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-top: 0.75rem; text-align: center; margin-left: 1.8rem;
+  }
+  .cover-right {
+    flex: 1; display: flex; align-items: center;
+    justify-content: center; padding-left: 4rem; gap: 2rem;
+  }
+  .cover-graphic { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .cover-node { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--gold); background: transparent; }
+  .cover-node.filled { background: var(--gold); }
+  .cover-vline { width: 1px; height: 52px; background: rgba(201,168,76,0.35); }
+  .cover-big-text {
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 42px; color: var(--black);
+    line-height: 1.25; letter-spacing: -0.02em;
+  }
+  .cover-big-text .gold { color: var(--gold); }
+  .cover-footer {
+    padding: 1.25rem 6rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cover-value { font-family: 'Lora', serif; font-size: 17px; color: var(--muted); font-style: italic; }
+  .cover-value span { color: var(--gold); font-style: normal; font-weight: 600; }
+  .chevrons {
+    position: absolute; bottom: 5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 5px;
+    cursor: pointer; padding: 0.5rem 1rem;
+  }
+  .chev {
+    width: 22px; height: 22px;
+    border-right: 2px solid rgba(201,168,76,0.7);
+    border-bottom: 2px solid rgba(201,168,76,0.7);
+    transform: rotate(45deg);
+    animation: bounce 1.6s ease infinite;
+    transition: border-color 0.2s ease;
+  }
+  .chev:nth-child(2) { animation-delay: 0.2s; opacity: 0.55; }
+  .chevrons:hover .chev { border-color: var(--gold); }
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+  .banner-logo-group { display: inline-flex; flex-direction: column; align-items: center; }
+  .banner-tagline { margin-left: 1.2rem; }
+
+  /* THE BETS PAGE */
+  .bets-wrap { padding: 0 4rem 6rem; max-width: 680px; }
+  .bets-section-label {
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 10px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.14em;
+    margin-bottom: 0.55rem; margin-top: 1.6rem;
+  }
+  .bets-framework-body {
+    font-family: 'Lora', serif; font-size: 15px;
+    line-height: 1.85; color: var(--black); margin-bottom: 1.75rem;
+  }
+  .bets-legs {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem; margin-bottom: 1.5rem;
+  }
+  .bets-leg {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 1.25rem;
+  }
+  .bets-leg-title {
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 10px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+  }
+  .bets-framework-note {
+    font-family: 'Lora', serif; font-size: 13px;
+    color: var(--muted); line-height: 1.65; font-style: italic;
+    margin-bottom: 1.75rem;
+  }
+  .bets-divider { height: 1px; background: rgba(201,168,76,0.25); margin: 2rem 0 1.75rem; }
+  .bets-verdicts { margin-bottom: 1.5rem; }
+  .bets-verdict-item {
+    margin-bottom: 1.1rem; display: flex;
+    align-items: baseline; gap: 1rem;
+  }
+  .bets-verdict-label {
+    font-family: 'Inter', sans-serif; font-weight: 700;
+    font-size: 10px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    white-space: nowrap; min-width: 100px;
+  }
+  .bets-verdict-def {
+    font-family: 'Lora', serif; font-size: 13px;
+    color: var(--muted); line-height: 1.6;
+  }
+  .bets-verdict-ps {
+    font-family: 'Lora', serif; font-size: 13px;
+    color: var(--muted); line-height: 1.65; font-style: italic;
+    margin-top: 1rem;
+  }
+  .bets-ledger-soon {
+    font-family: 'Lora', serif; font-size: 15px;
+    color: var(--muted); font-style: italic; line-height: 1.85;
+    margin-top: 0.55rem;
+  }
+
   @media (max-width: 768px) {
     .banner { display: none; }
     .left-nav { display: none; }
@@ -353,6 +492,16 @@
     .archive-wrap { padding: 0 1.25rem 4rem; }
     .about-wrap { padding: 0 1.25rem 4rem; }
     .archive-grid { grid-template-columns: 1fr; }
+    .cover-body { padding: 0 1.5rem; flex-direction: column; gap: 2.5rem; justify-content: center; }
+    .cover-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-right: 0; padding-bottom: 2rem; }
+    .cover-whats { font-size: 44px; }
+    .cover-bet { font-size: 32px; }
+    .cover-right { padding-left: 0; }
+    .cover-big-text { font-size: 24px; }
+    .cover-footer { padding: 1rem 1.5rem; }
+    .chevrons { bottom: 3rem; }
+    .bets-wrap { padding: 0 1.25rem 4rem; }
+    .bets-legs { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -360,17 +509,51 @@
 
 <div id="progress-bar"></div>
 
-<header class="banner">
-  <div class="banner-logotype">
-    <span class="whats-the">What's the</span>
-    <span class="bet">bet?</span>
+<div class="cover" id="cover">
+  <div class="cover-body">
+    <div class="cover-left">
+      <div class="cover-logo-group">
+        <div class="cover-logotype">
+          <span class="cover-whats">What's the</span>
+          <span class="cover-bet">bet?</span>
+        </div>
+        <div class="cover-tagline">Ecosystem review &nbsp;·&nbsp; Every week.</div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="cover-graphic">
+        <div class="cover-node filled"></div>
+        <div class="cover-vline"></div>
+        <div class="cover-node"></div>
+        <div class="cover-vline"></div>
+        <div class="cover-node"></div>
+      </div>
+      <div class="cover-big-text">3 startups.<br><span class="gold">3 bets.</span></div>
+    </div>
   </div>
-  <div class="banner-tagline">Ecosystem review. Every week.</div>
+  <div class="cover-footer">
+    <div class="cover-value">Where Indian startup funding gets a <span>second opinion.</span></div>
+  </div>
+  <div class="chevrons" id="chevrons">
+    <div class="chev"></div>
+    <div class="chev"></div>
+  </div>
+</div>
+
+<header class="banner">
+  <div class="banner-logo-group">
+    <div class="banner-logotype">
+      <span class="whats-the">What's the</span>
+      <span class="bet">bet?</span>
+    </div>
+    <div class="banner-tagline">Ecosystem review. Every week.</div>
+  </div>
 </header>
 
 <nav class="left-nav">
   <button class="nav-tab active" data-page="this-week">This Week</button>
   <button class="nav-tab" data-page="archive">Archive</button>
+  <button class="nav-tab" data-page="the-bets">The Bets</button>
   <button class="nav-tab" data-page="about">About</button>
 </nav>
 
@@ -384,6 +567,7 @@
   </div>
   <button class="mobile-nav-tab active" data-page="this-week">This Week</button>
   <button class="mobile-nav-tab" data-page="archive">Archive</button>
+  <button class="mobile-nav-tab" data-page="the-bets">The Bets</button>
   <button class="mobile-nav-tab" data-page="about">About</button>
 </nav>
 
@@ -398,9 +582,9 @@
       </div>
 
       <!-- Card 1 -->
-      <div class="startup-card">
+      <div class="startup-card" id="c1">
         <div class="company-name"><!-- WTB:C1_NAME -->Ctruh<!-- /WTB:C1_NAME --></div>
-        <!-- WTB:C1_PHOTO --><img class="founder-photo" src="images/ctruh.jpg" alt="Ctruh founders"><!-- /WTB:C1_PHOTO -->
+        <!-- WTB:C1_PHOTO --><img class="founder-photo" src="../outputs/photos/ctruh.jpg" alt="Ctruh founders"><!-- /WTB:C1_PHOTO -->
         <div class="specs"><!-- WTB:C1_SPECS -->
           Deep Tech <span class="dot">·</span> $2.50M <span class="dot">·</span> Seed <span class="dot">·</span> Bengaluru <span class="dot">·</span> Inflection Point Ventures
         <!-- /WTB:C1_SPECS --></div>
@@ -418,7 +602,7 @@
       <!-- Card 2 -->
       <div class="startup-card">
         <div class="company-name"><!-- WTB:C2_NAME -->Sahi<!-- /WTB:C2_NAME --></div>
-        <!-- WTB:C2_PHOTO --><img class="founder-photo" src="images/sahi.jpg" alt="Sahi founders"><!-- /WTB:C2_PHOTO -->
+        <!-- WTB:C2_PHOTO --><img class="founder-photo" src="../outputs/photos/sahi.jpg" alt="Sahi founders"><!-- /WTB:C2_PHOTO -->
         <div class="specs"><!-- WTB:C2_SPECS -->
           Fintech - Trading Platform <span class="dot">·</span> $33.00M <span class="dot">·</span> Series B <span class="dot">·</span> Bengaluru <span class="dot">·</span> Accel
         <!-- /WTB:C2_SPECS --></div>
@@ -436,7 +620,7 @@
       <!-- Card 3 -->
       <div class="startup-card">
         <div class="company-name"><!-- WTB:C3_NAME -->Snabbit<!-- /WTB:C3_NAME --></div>
-        <!-- WTB:C3_PHOTO --><img class="founder-photo" src="images/snabbit.jpg" alt="Snabbit founders"><!-- /WTB:C3_PHOTO -->
+        <!-- WTB:C3_PHOTO --><img class="founder-photo" src="../outputs/photos/snabbit.jpg" alt="Snabbit founders"><!-- /WTB:C3_PHOTO -->
         <div class="specs"><!-- WTB:C3_SPECS -->
           Quick Home Services <span class="dot">·</span> $56.00M <span class="dot">·</span> Series D <span class="dot">·</span> Mumbai <span class="dot">·</span> Susquehanna Venture Capital
         <!-- /WTB:C3_SPECS --></div>
@@ -482,23 +666,63 @@
       <div class="about-bio">Hey everyone! I am Jay Roy, a first-year student at BITS Pilani. I am intrigued by startups, product and strategy, investing, and basically all things business. My hobbies include listening to music, saying I'll go to the gym daily then going twice a week, chess, eating good food, and despite what my friends would have you believe, I also enjoy talking to people. This is my first time creating publicly, so I am very open to feedback/suggestions on anything you see here.</div>
       <div class="about-divider"></div>
       <div class="section-label">About this site:</div>
-      <div class="about-pub-desc">What's the Bet? is a weekly snapshot of the Indian startup ecosystem: three recently funded companies, one early stage, one mid stage, one late stage, every week. Each edition is deliberately kept under ten minutes, with a glossary for the jargon. Written for the curious, without compromising on quality for the enthusiasts.</div>
+      <div class="about-pub-desc">What's the Bet? is a weekly snapshot of the Indian startup ecosystem: three recently funded companies, one early stage, one mid stage, one late stage, every week. Each edition is deliberately kept under ten minutes, with a glossary for the jargon. Written for the curious, without compromising on quality for the enthusiasts. Nothing published here constitutes financial advice — these are personal opinions and should be read as such.</div>
       <span style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);letter-spacing:0.03em;">Feel free to reach out at </span><a class="about-email" href="mailto:jay@example.com">f20250034@pilani.bits-pilani.ac.in.</a>
       <div style="margin-top:0.6rem;"><span style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);letter-spacing:0.03em;">LinkedIn: </span><a class="about-email" href="https://www.linkedin.com/in/jay-roy-6802b0275/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jay-roy</a></div>
-      <div class="about-divider-2"></div>
-      <div class="page-title" style="margin-bottom:1.25rem;">How I Rate Each Startup</div>
-      <div class="verdict-item">
-        <div class="verdict-label">IN!</div>
-        <div class="verdict-def">The thesis is compelling. I'd back it.</div>
+    </div>
+  </div>
+
+
+  <!-- THE BETS -->
+  <div class="page" id="the-bets">
+    <div class="bets-wrap">
+      <div class="page-title">The Bets</div>
+
+      <div class="bets-section-label">The Framework</div>
+      <div class="bets-framework-body">Every startup featured on What's the Bet? is assessed on four legs. A company doesn't need to ace all four, but a shaky leg is a risk factor worth naming.</div>
+      <div class="bets-legs">
+        <div class="bets-leg">
+          <div class="bets-leg-title">Problem</div>
+          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Is the pain real, frequent, and large enough to build a company on?</div>
+        </div>
+        <div class="bets-leg">
+          <div class="bets-leg-title">Solution</div>
+          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Does the product actually solve it, and is there a reason this team builds it better than anyone else?</div>
+        </div>
+        <div class="bets-leg">
+          <div class="bets-leg-title">Market</div>
+          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Is the addressable market large and accessible enough to justify venture scale?</div>
+        </div>
+        <div class="bets-leg">
+          <div class="bets-leg-title">Moat</div>
+          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">What stops a well-funded competitor from copying the model in eighteen months?</div>
+        </div>
       </div>
-      <div class="verdict-item">
-        <div class="verdict-label">Watching...</div>
-        <div class="verdict-def">Not entirely sure yet, but optimistic...</div>
+      <div class="bets-framework-note">These aren't scorecards — they're lenses. The weight of each leg shifts by stage, sector, and circumstance.</div>
+
+      <div class="bets-divider"></div>
+
+      <div class="bets-section-label">The Verdicts</div>
+      <div class="bets-verdicts">
+        <div class="bets-verdict-item">
+          <div class="bets-verdict-label">IN!</div>
+          <div class="bets-verdict-def">The thesis is compelling on at least three legs, the team inspires confidence, and I'd back it if I could.</div>
+        </div>
+        <div class="bets-verdict-item">
+          <div class="bets-verdict-label">Watching...</div>
+          <div class="bets-verdict-def">Interesting enough to track, but one leg is shaky or the timing isn't clear. Optimistic, not convinced.</div>
+        </div>
+        <div class="bets-verdict-item">
+          <div class="bets-verdict-label">Unconvinced.</div>
+          <div class="bets-verdict-def">A structural concern I can't look past — market, moat, or model. Not a no forever, but a no for now.</div>
+        </div>
       </div>
-      <div class="verdict-item">
-        <div class="verdict-label">Unconvinced.</div>
-        <div class="verdict-def">No go.</div>
-      </div>
+      <div class="bets-verdict-ps">P.S. — These are opinions formed from public information only. They are not investment advice.</div>
+
+      <div class="bets-divider"></div>
+
+      <div class="bets-section-label">The Ledger</div>
+      <div class="bets-ledger-soon">Coming soon — a running record of every bet and how each startup is doing today.</div>
     </div>
   </div>
 
@@ -507,11 +731,40 @@
 <button class="back-top" id="backTop">↑</button>
 
 <script>
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   const progressBar = document.getElementById('progress-bar');
   const backTop = document.getElementById('backTop');
   const hamburger = document.getElementById('hamburger');
   const mobileSidebar = document.getElementById('mobileSidebar');
   const mobileOverlay = document.getElementById('mobileOverlay');
+  const cover = document.getElementById('cover');
+  const chevrons = document.getElementById('chevrons');
+  const firstCard = document.getElementById('c1');
+  let coverLifted = false;
+  let startY = 0;
+
+  function getScrollTarget() {
+    const cardTop = firstCard.getBoundingClientRect().top + window.scrollY;
+    const isMobile = window.innerWidth <= 768;
+    const bannerH = isMobile ? 0 : (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--banner-h')) || 100);
+    return cardTop - bannerH;
+  }
+
+  function liftCover() {
+    if (coverLifted) return;
+    coverLifted = true;
+    cover.classList.add('lifted');
+    setTimeout(() => {
+      window.scrollTo({ top: getScrollTarget(), behavior: 'instant' });
+    }, 850);
+  }
+
+  chevrons.addEventListener('click', liftCover);
+  window.addEventListener('wheel', (e) => { if (!coverLifted && e.deltaY > 0) liftCover(); }, { passive: true });
+  window.addEventListener('touchstart', (e) => { if (!coverLifted) startY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchmove', (e) => { if (!coverLifted && e.touches[0].clientY < startY - 30) liftCover(); }, { passive: true });
 
   function switchPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -564,10 +817,12 @@
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = pct + '%';
-    backTop.classList.toggle('visible', pct > 50);
+    backTop.classList.toggle('visible', scrollTop > 200);
   });
 
-  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: getScrollTarget(), behavior: 'smooth' });
+  });
 
   hamburger.addEventListener('click', () => {
     mobileSidebar.style.transform = 'translateX(0)';
