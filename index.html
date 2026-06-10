@@ -19,6 +19,292 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); min-height: 100vh; }
 
+  /* COVER */
+  .cover {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .cover.lifted { transform: translateY(-100%); pointer-events: none; }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6rem;
+  }
+
+  .cover-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 4rem;
+    border-right: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .cover-logo-group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cover-logotype {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .cover-whats {
+    font-family: 'Great Vibes', cursive;
+    color: var(--black);
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .cover-bet {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 46px;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 3px;
+    line-height: 1;
+  }
+
+  .cover-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.75rem;
+    text-align: center;
+    margin-left: 1.8rem;
+    width: 100%;
+  }
+
+  .cover-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4rem;
+    gap: 2rem;
+  }
+
+  .cover-graphic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .cover-node {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: transparent;
+  }
+
+  .cover-node.filled { background: var(--gold); }
+
+  .cover-vline {
+    width: 1px; height: 52px;
+    background: rgba(201,168,76,0.35);
+  }
+
+  .cover-big-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: var(--black);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-big-text .gold { color: var(--gold); }
+
+  .cover-footer {
+    padding: 1.25rem 6rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cover-value {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .cover-value span {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .chevrons {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+
+  .chev {
+    width: 22px; height: 22px;
+    border-right: 2px solid rgba(201,168,76,0.7);
+    border-bottom: 2px solid rgba(201,168,76,0.7);
+    transform: rotate(45deg);
+    animation: bounce 1.6s ease infinite;
+    transition: border-color 0.2s ease;
+  }
+
+  .chev:nth-child(2) { animation-delay: 0.2s; opacity: 0.55; }
+  .chevrons:hover .chev { border-color: var(--gold); }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+
+  /* THE BETS PAGE */
+  .bets-wrap {
+    max-width: 740px;
+    padding: 2.5rem 2rem 4rem;
+  }
+  .bets-framework-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .bets-framework-left { flex: 1; }
+  .bets-framework-right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.25rem;
+  }
+  .bets-section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+  .bets-framework-body {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .bets-legs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .bets-leg {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .bets-leg-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--black);
+    letter-spacing: 0.02em;
+  }
+  .bets-framework-note {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .bets-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(201,168,76,0.15);
+    margin: 2.5rem 0;
+  }
+  .bets-verdicts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .bets-verdict-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .bets-verdict-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    min-width: 110px;
+    padding-top: 2px;
+    color: var(--black);
+  }
+  .bets-verdict-def {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .bets-verdict-ps {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-top: 0.5rem;
+  }
+  .bets-ledger-soon {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .bets-framework-header { flex-direction: column-reverse; gap: 1.5rem; }
+    .bets-framework-right { width: 100%; }
+    .bets-verdict-item { flex-direction: column; gap: 0.3rem; }
+    .bets-verdict-label { min-width: unset; }
+  }
+    .cover-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-right: 0; padding-bottom: 2rem; align-items: center; }
+    .cover-whats { font-size: 44px; }
+    .cover-bet { font-size: 32px; }
+    .cover-right { padding-left: 0; }
+    .cover-big-text { font-size: 24px; }
+    .cover-footer { padding: 1rem 1.5rem; }
+    .chevrons { bottom: 3rem; }
+  }
+
   #progress-bar {
     position: fixed; top: 0; left: 0; height: 3px;
     background: var(--gold); width: 0%; z-index: 1000;
@@ -35,9 +321,14 @@
     align-items: center; justify-content: center;
     padding: 1.25rem 3rem;
   }
+  .banner-logo-group {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .banner-logotype {
     display: flex; align-items: baseline;
-    gap: 6px; justify-content: center;
+    gap: 6px;
   }
   .banner-logotype .whats-the {
     font-family: 'Great Vibes', cursive;
@@ -55,7 +346,7 @@
     font-family: 'Inter', sans-serif; font-weight: 400;
     font-size: 9px; color: var(--muted);
     letter-spacing: 0.18em; text-transform: uppercase;
-    margin-top: 0.6rem; text-align: center;
+    margin-top: 0.6rem; margin-left: 1.2rem;
   }
 
   /* LEFT NAV */
@@ -343,145 +634,6 @@
   .mobile-nav-tab:hover { color: var(--gold); transform: translateX(4px); }
   .mobile-nav-tab.active { color: var(--gold); font-weight: 700; }
 
-  /* COVER */
-  .cover {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--cream);
-    display: flex;
-    flex-direction: column;
-    z-index: 200;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  .cover.lifted { transform: translateY(-100%); pointer-events: none; }
-  .cover-body {
-    flex: 1; display: flex;
-    align-items: center; justify-content: center;
-    padding: 0 6rem;
-  }
-  .cover-left {
-    flex: 1; display: flex; flex-direction: column;
-    align-items: center;
-    padding-right: 4rem;
-    border-right: 1px solid rgba(201,168,76,0.2);
-  }
-  .cover-logo-group { display: inline-flex; flex-direction: column; align-items: center; }
-  .cover-logotype { display: flex; align-items: baseline; gap: 8px; }
-  .cover-whats { font-family: 'Great Vibes', cursive; color: var(--black); font-size: 64px; line-height: 1; }
-  .cover-bet {
-    font-family: 'Cormorant Garamond', serif; font-weight: 700;
-    color: var(--gold); font-size: 46px; letter-spacing: 0.08em;
-    border-bottom: 2px solid var(--gold); padding-bottom: 3px; line-height: 1;
-  }
-  .cover-tagline {
-    font-family: 'Inter', sans-serif; font-size: 10px; color: #aaa;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    margin-top: 0.75rem; text-align: center; margin-left: 1.8rem;
-  }
-  .cover-right {
-    flex: 1; display: flex; align-items: center;
-    justify-content: center; padding-left: 4rem; gap: 2rem;
-  }
-  .cover-graphic { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-  .cover-node { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--gold); background: transparent; }
-  .cover-node.filled { background: var(--gold); }
-  .cover-vline { width: 1px; height: 52px; background: rgba(201,168,76,0.35); }
-  .cover-big-text {
-    font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 42px; color: var(--black);
-    line-height: 1.25; letter-spacing: -0.02em;
-  }
-  .cover-big-text .gold { color: var(--gold); }
-  .cover-footer {
-    padding: 1.25rem 6rem;
-    border-top: 1px solid rgba(201,168,76,0.15);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .cover-value { font-family: 'Lora', serif; font-size: 17px; color: var(--muted); font-style: italic; }
-  .cover-value span { color: var(--gold); font-style: normal; font-weight: 600; }
-  .chevrons {
-    position: absolute; bottom: 5rem; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column;
-    align-items: center; gap: 5px;
-    cursor: pointer; padding: 0.5rem 1rem;
-  }
-  .chev {
-    width: 22px; height: 22px;
-    border-right: 2px solid rgba(201,168,76,0.7);
-    border-bottom: 2px solid rgba(201,168,76,0.7);
-    transform: rotate(45deg);
-    animation: bounce 1.6s ease infinite;
-    transition: border-color 0.2s ease;
-  }
-  .chev:nth-child(2) { animation-delay: 0.2s; opacity: 0.55; }
-  .chevrons:hover .chev { border-color: var(--gold); }
-  @keyframes bounce {
-    0%, 100% { transform: rotate(45deg) translateY(0); }
-    50% { transform: rotate(45deg) translateY(6px); }
-  }
-  .banner-logo-group { display: inline-flex; flex-direction: column; align-items: center; }
-  .banner-tagline { margin-left: 1.2rem; }
-
-  /* THE BETS PAGE */
-  .bets-wrap { padding: 0 4rem 6rem; max-width: 680px; }
-  .bets-section-label {
-    font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 10px; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 0.14em;
-    margin-bottom: 0.55rem; margin-top: 1.6rem;
-  }
-  .bets-framework-body {
-    font-family: 'Lora', serif; font-size: 15px;
-    line-height: 1.85; color: var(--black); margin-bottom: 1.75rem;
-  }
-  .bets-legs {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem; margin-bottom: 1.5rem;
-  }
-  .bets-leg {
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 1.25rem;
-  }
-  .bets-leg-title {
-    font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 10px; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 0.12em;
-    margin-bottom: 0.5rem;
-  }
-  .bets-framework-note {
-    font-family: 'Lora', serif; font-size: 13px;
-    color: var(--muted); line-height: 1.65; font-style: italic;
-    margin-bottom: 1.75rem;
-  }
-  .bets-divider { height: 1px; background: rgba(201,168,76,0.25); margin: 2rem 0 1.75rem; }
-  .bets-verdicts { margin-bottom: 1.5rem; }
-  .bets-verdict-item {
-    margin-bottom: 1.1rem; display: flex;
-    align-items: baseline; gap: 1rem;
-  }
-  .bets-verdict-label {
-    font-family: 'Inter', sans-serif; font-weight: 700;
-    font-size: 10px; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 0.12em;
-    white-space: nowrap; min-width: 100px;
-  }
-  .bets-verdict-def {
-    font-family: 'Lora', serif; font-size: 13px;
-    color: var(--muted); line-height: 1.6;
-  }
-  .bets-verdict-ps {
-    font-family: 'Lora', serif; font-size: 13px;
-    color: var(--muted); line-height: 1.65; font-style: italic;
-    margin-top: 1rem;
-  }
-  .bets-ledger-soon {
-    font-family: 'Lora', serif; font-size: 15px;
-    color: var(--muted); font-style: italic; line-height: 1.85;
-    margin-top: 0.55rem;
-  }
-
   @media (max-width: 768px) {
     .banner { display: none; }
     .left-nav { display: none; }
@@ -492,16 +644,6 @@
     .archive-wrap { padding: 0 1.25rem 4rem; }
     .about-wrap { padding: 0 1.25rem 4rem; }
     .archive-grid { grid-template-columns: 1fr; }
-    .cover-body { padding: 0 1.5rem; flex-direction: column; gap: 2.5rem; justify-content: center; }
-    .cover-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-right: 0; padding-bottom: 2rem; }
-    .cover-whats { font-size: 44px; }
-    .cover-bet { font-size: 32px; }
-    .cover-right { padding-left: 0; }
-    .cover-big-text { font-size: 24px; }
-    .cover-footer { padding: 1rem 1.5rem; }
-    .chevrons { bottom: 3rem; }
-    .bets-wrap { padding: 0 1.25rem 4rem; }
-    .bets-legs { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -509,6 +651,7 @@
 
 <div id="progress-bar"></div>
 
+<!-- COVER — fixed, slides up on scroll or chevron click -->
 <div class="cover" id="cover">
   <div class="cover-body">
     <div class="cover-left">
@@ -672,57 +815,48 @@
     </div>
   </div>
 
-
   <!-- THE BETS -->
   <div class="page" id="the-bets">
     <div class="bets-wrap">
-      <div class="page-title">The Bets</div>
 
-      <div class="bets-section-label">The Framework</div>
-      <div class="bets-framework-body">Every startup featured on What's the Bet? is assessed on four legs. A company doesn't need to ace all four, but a shaky leg is a risk factor worth naming.</div>
-      <div class="bets-legs">
-        <div class="bets-leg">
-          <div class="bets-leg-title">Problem</div>
-          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Is the pain real, frequent, and large enough to build a company on?</div>
-        </div>
-        <div class="bets-leg">
-          <div class="bets-leg-title">Solution</div>
-          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Does the product actually solve it, and is there a reason this team builds it better than anyone else?</div>
-        </div>
-        <div class="bets-leg">
-          <div class="bets-leg-title">Market</div>
-          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">Is the addressable market large and accessible enough to justify venture scale?</div>
-        </div>
-        <div class="bets-leg">
-          <div class="bets-leg-title">Moat</div>
-          <div class="bets-framework-body" style="font-size:13px;margin-bottom:0;">What stops a well-funded competitor from copying the model in eighteen months?</div>
+      <div class="bets-framework-header">
+        <div class="bets-framework-left">
+          <div class="bets-section-label">The Framework</div>
+          <div class="bets-framework-body">Every startup is analyzed through a 4-legged framework. I don't want to quantify each metric with a rating, as I feel that could make the process too rigid, but I will roughly go over these 4 parameters in each of my analyses.</div>
+          <div class="bets-legs">
+            <div class="bets-leg"><span class="bets-leg-title">Founder</span> — Does the team have the domain knowledge, execution history, and personal credibility to pull this off?</div>
+            <div class="bets-leg"><span class="bets-leg-title">Moat</span> — Looking for structural advantages: network effects, switching costs, proprietary data/technology, or distribution that's hard to replicate.</div>
+            <div class="bets-leg"><span class="bets-leg-title">Timing & Market</span> — Is the world set up for this to win right now? This covers market size, regulatory conditions, and whether the problem is urgent enough for people to actually change their behaviour.</div>
+            <div class="bets-leg"><span class="bets-leg-title">Commercial Clarity</span> — How does the business hold up at scale? Is there a clear path to positive margins?</div>
+          </div>
+          <div class="bets-framework-note">The weightage of each metric varies with each case — for example, a pre-seed deep-tech company would draw more weightage to its moat or founder's expertise, whereas a quick-commerce unicorn raising a Series D would be evaluated more strictly on macro factors and their strategy going forward.</div>
         </div>
       </div>
-      <div class="bets-framework-note">These aren't scorecards — they're lenses. The weight of each leg shifts by stage, sector, and circumstance.</div>
 
       <div class="bets-divider"></div>
 
       <div class="bets-section-label">The Verdicts</div>
       <div class="bets-verdicts">
         <div class="bets-verdict-item">
-          <div class="bets-verdict-label">IN!</div>
-          <div class="bets-verdict-def">The thesis is compelling on at least three legs, the team inspires confidence, and I'd back it if I could.</div>
+          <div class="bets-verdict-label in">IN!</div>
+          <div class="bets-verdict-def">The thesis is compelling. I'd back it.</div>
         </div>
         <div class="bets-verdict-item">
-          <div class="bets-verdict-label">Watching...</div>
-          <div class="bets-verdict-def">Interesting enough to track, but one leg is shaky or the timing isn't clear. Optimistic, not convinced.</div>
+          <div class="bets-verdict-label watching">Watching...</div>
+          <div class="bets-verdict-def">Not entirely sure yet, but optimistic...</div>
         </div>
         <div class="bets-verdict-item">
-          <div class="bets-verdict-label">Unconvinced.</div>
-          <div class="bets-verdict-def">A structural concern I can't look past — market, moat, or model. Not a no forever, but a no for now.</div>
+          <div class="bets-verdict-label unconvinced">Unconvinced.</div>
+          <div class="bets-verdict-def">No go.</div>
         </div>
+        <div class="bets-verdict-ps">P.S. A week doesn't necessarily produce one of each — I might go two INs and an Unconvinced, or three Watching. The verdicts are strictly based on the startups, not a quota.</div>
       </div>
-      <div class="bets-verdict-ps">P.S. — These are opinions formed from public information only. They are not investment advice.</div>
 
       <div class="bets-divider"></div>
 
       <div class="bets-section-label">The Ledger</div>
-      <div class="bets-ledger-soon">Coming soon — a running record of every bet and how each startup is doing today.</div>
+      <div class="bets-ledger-soon">Coming soon.</div>
+
     </div>
   </div>
 
@@ -745,27 +879,33 @@
   let coverLifted = false;
   let startY = 0;
 
-  function getScrollTarget() {
-    const cardTop = firstCard.getBoundingClientRect().top + window.scrollY;
-    const isMobile = window.innerWidth <= 768;
-    const bannerH = isMobile ? 0 : (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--banner-h')) || 100);
-    return cardTop - bannerH;
-  }
-
+  // --- Cover logic ---
   function liftCover() {
     if (coverLifted) return;
     coverLifted = true;
     cover.classList.add('lifted');
     setTimeout(() => {
-      window.scrollTo({ top: getScrollTarget(), behavior: 'instant' });
+      const cardTop = firstCard.getBoundingClientRect().top + window.scrollY;
+      const bannerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--banner-h')) || 100;
+      window.scrollTo({ top: cardTop - bannerH, behavior: 'instant' });
     }, 850);
   }
 
   chevrons.addEventListener('click', liftCover);
-  window.addEventListener('wheel', (e) => { if (!coverLifted && e.deltaY > 0) liftCover(); }, { passive: true });
-  window.addEventListener('touchstart', (e) => { if (!coverLifted) startY = e.touches[0].clientY; }, { passive: true });
-  window.addEventListener('touchmove', (e) => { if (!coverLifted && e.touches[0].clientY < startY - 30) liftCover(); }, { passive: true });
 
+  window.addEventListener('wheel', (e) => {
+    if (!coverLifted && e.deltaY > 0) liftCover();
+  }, { passive: true });
+
+  window.addEventListener('touchstart', (e) => {
+    if (!coverLifted) startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!coverLifted && e.touches[0].clientY < startY - 30) liftCover();
+  }, { passive: true });
+
+  // --- Page switching ---
   function switchPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
@@ -790,6 +930,7 @@
     });
   });
 
+  // --- Glossary terms ---
   function _ensureTermDef(el) {
     const next = el.nextElementSibling;
     if (next && next.classList.contains('term-def')) return next;
@@ -812,6 +953,7 @@
     }
   });
 
+  // --- Scroll: progress bar + back-to-top visibility ---
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -820,10 +962,14 @@
     backTop.classList.toggle('visible', scrollTop > 200);
   });
 
+  // --- Back to top: scroll to card 1, cover stays gone ---
   backTop.addEventListener('click', () => {
-    window.scrollTo({ top: getScrollTarget(), behavior: 'smooth' });
+    const cardTop = firstCard.getBoundingClientRect().top + window.scrollY;
+    const bannerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--banner-h')) || 100;
+    window.scrollTo({ top: cardTop - bannerH, behavior: 'smooth' });
   });
 
+  // --- Mobile sidebar ---
   hamburger.addEventListener('click', () => {
     mobileSidebar.style.transform = 'translateX(0)';
     mobileOverlay.style.display = 'block';
