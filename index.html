@@ -520,6 +520,12 @@
     font-family: 'Lora', serif; font-size: 13px;
     color: var(--muted); line-height: 1.9; margin-bottom: 1.25rem;
   }
+  .archive-placeholder {
+    font-family: 'Lora', serif; font-size: 15px;
+    color: var(--muted); font-style: italic;
+    padding: 2rem 0; grid-column: 1 / -1;
+  }
+  .archive-card ~ .archive-placeholder { display: none; }
   .read-btn {
     font-family: 'Inter', sans-serif; font-weight: 700;
     font-size: 10px; letter-spacing: 0.08em;
@@ -791,11 +797,7 @@
       <div class="page-title">All Editions</div>
       <div class="archive-grid">
 <!-- WTB:ARCHIVE_INSERT -->
-        <div class="archive-card">
-          <div class="archive-date">W1 June 2026</div>
-          <div class="archive-names">Ctruh<br>Sahi<br>Snabbit</div>
-          <button class="read-btn" onclick="window.location='archive/edition-2026-06-09.html'">Read Edition</button>
-        </div>
+        <p class="archive-placeholder">No past editions yet!</p>
       </div>
     </div>
   </div>
@@ -852,11 +854,7 @@
         <div class="bets-verdict-ps">A week doesn't necessarily produce one of each, I might go two INs and an Unconvinced, or three Watching. The verdicts are strictly based on the startups, not a quota.</div>
       </div>
 
-      <div class="bets-divider"></div>
-
-      <div class="bets-section-label">The Ledger</div>
-      <div class="bets-ledger-soon">Coming soon.</div>
-
+     
     </div>
   </div>
 
