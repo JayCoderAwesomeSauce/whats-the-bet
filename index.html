@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>What's the Bet?</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="What's the Bet?">
+<meta property="og:description" content="A weekly snapshot of the Indian startup ecosystem: three recently funded startups, one early stage, one mid stage, one late stage, every week. Each run through a four-legged framework and given a verdict.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jaycoderawesomesauce.github.io/whats-the-bet/">
+<meta property="og:image" content="https://jaycoderawesomesauce.github.io/whats-the-bet/images/ctruh.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What's the Bet?">
+<meta name="twitter:description" content="A weekly snapshot of the Indian startup ecosystem, three startups every week, each given a verdict.">
+<meta name="twitter:image" content="https://jaycoderawesomesauce.github.io/whats-the-bet/images/ctruh.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,7 +57,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 4rem;
+    padding-right: 6rem;
     border-right: 1px solid rgba(201,168,76,0.2);
   }
 
@@ -65,7 +76,7 @@
   .cover-whats {
     font-family: 'Great Vibes', cursive;
     color: var(--black);
-    font-size: 64px;
+    font-size: 56px;
     line-height: 1;
   }
 
@@ -73,7 +84,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
     color: var(--gold);
-    font-size: 46px;
+    font-size: 40px;
     letter-spacing: 0.08em;
     border-bottom: 2px solid var(--gold);
     padding-bottom: 3px;
@@ -283,24 +294,22 @@
     line-height: 1.75;
     margin-top: 0.5rem;
   }
-  .bets-ledger-soon {
-    font-family: 'Lora', serif;
-    font-size: 14px;
-    color: var(--muted);
-    font-style: italic;
-  }
 
   @media (max-width: 768px) {
     .bets-framework-header { flex-direction: column-reverse; gap: 1.5rem; }
     .bets-framework-right { width: 100%; }
     .bets-verdict-item { flex-direction: column; gap: 0.3rem; }
     .bets-verdict-label { min-width: unset; }
-  }
-    .cover-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding-right: 0; padding-bottom: 2rem; align-items: center; }
-    .cover-whats { font-size: 44px; }
-    .cover-bet { font-size: 32px; }
-    .cover-right { padding-left: 0; }
-    .cover-big-text { font-size: 24px; }
+    .cover-body { flex-direction: row; padding: 0 1rem; align-items: center; }
+    .cover-left { padding-right: 0.75rem; align-items: center; border-right: none; }
+    .cover-logotype { flex-direction: row; align-items: baseline; gap: 4px; flex-wrap: nowrap; }
+    .cover-whats { font-size: 28px; white-space: nowrap; }
+    .cover-bet { font-size: 21px; white-space: nowrap; border-bottom-width: 1px; }
+    .cover-tagline-break { display: block; }
+    .cover-tagline { margin-left: 0; font-size: 8px; letter-spacing: 0.12em; white-space: normal; }
+    .cover-right { padding-left: 1.1rem; justify-content: center; gap: 1.5rem; }
+    .cover-vline { height: 40px; }
+    .cover-big-text { font-size: 17px; white-space: nowrap; line-height: 1.3; }
     .cover-footer { padding: 1rem 1.5rem; }
     .chevrons { bottom: 3rem; }
   }
@@ -348,6 +357,15 @@
     letter-spacing: 0.18em; text-transform: uppercase;
     margin-top: 0.6rem; margin-left: 1.2rem;
   }
+  .banner-subscribe {
+    position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; line-height: 1;
+    color: var(--gold); background: transparent;
+    border: 2px solid var(--gold); padding: 12px 16px;
+    cursor: pointer; transition: background 0.15s ease, color 0.15s ease;
+  }
+  .banner-subscribe:hover { background: var(--gold); color: var(--cream); }
 
   /* LEFT NAV */
   .left-nav {
@@ -424,6 +442,7 @@
     margin-bottom: 1.75rem; line-height: 1.8;
   }
   .specs .dot { color: var(--gold); margin: 0 7px; }
+  .spec-item { white-space: nowrap; }
 
   .section-label {
     font-family: 'Inter', sans-serif; font-weight: 700;
@@ -520,6 +539,12 @@
     font-family: 'Lora', serif; font-size: 13px;
     color: var(--muted); line-height: 1.9; margin-bottom: 1.25rem;
   }
+  .archive-placeholder {
+    font-family: 'Lora', serif; font-size: 15px;
+    color: var(--muted); font-style: italic;
+    padding: 2rem 0; grid-column: 1 / -1;
+  }
+  .archive-card ~ .archive-placeholder { display: none; }
   .read-btn {
     font-family: 'Inter', sans-serif; font-weight: 700;
     font-size: 10px; letter-spacing: 0.08em;
@@ -591,8 +616,8 @@
 
   /* MOBILE */
   .hamburger {
-    display: none; position: fixed; top: 1rem; right: 1rem;
-    z-index: 200; background: var(--black);
+    display: none; position: fixed; top: 1rem; left: 1rem;
+    z-index: 100; background: var(--black);
     color: white; border: none; width: 38px; height: 38px;
     font-size: 17px; cursor: pointer;
     align-items: center; justify-content: center;
@@ -603,7 +628,7 @@
   }
   .mobile-sidebar {
     position: fixed; top: 0; left: 0; bottom: 0;
-    width: 220px; background: var(--black);
+    width: 220px; background: var(--cream);
     flex-direction: column; padding: 2.5rem 1.5rem;
     z-index: 160; transform: translateX(-100%);
     transition: transform 0.3s ease; display: none;
@@ -611,7 +636,7 @@
   .mobile-logotype { margin-bottom: 2.5rem; }
   .mobile-logotype .whats-the {
     font-family: 'Great Vibes', cursive;
-    color: white; font-size: 28px; display: inline; line-height: 1.3;
+    color: var(--black); font-size: 28px; display: inline; line-height: 1.3;
   }
   .mobile-logotype .bet {
     font-family: 'Cormorant Garamond', serif;
@@ -620,12 +645,12 @@
   }
   .mobile-tagline {
     font-family: 'Inter', sans-serif; font-size: 9px;
-    color: rgba(255,255,255,0.4); letter-spacing: 0.12em;
+    color: rgba(17,17,17,0.4); letter-spacing: 0.12em;
     text-transform: uppercase; margin-top: 0.5rem; display: block;
   }
   .mobile-nav-tab {
     font-family: 'Inter', sans-serif; font-weight: 400;
-    color: rgba(255,255,255,0.55); font-size: 13px;
+    color: rgba(17,17,17,0.55); font-size: 13px;
     padding: 0.65rem 0.5rem; cursor: pointer;
     border: none; background: none; text-align: left;
     transition: all 0.15s ease; letter-spacing: 0.03em;
@@ -633,12 +658,77 @@
   }
   .mobile-nav-tab:hover { color: var(--gold); transform: translateX(4px); }
   .mobile-nav-tab.active { color: var(--gold); font-weight: 700; }
+  /* MOBILE ACTIONS ROW (hamburger + email, sticky below edition-meta) */
+  .mobile-actions {
+    display: none; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 90;
+    background: var(--cream); padding: 0.5rem 0;
+    margin-bottom: 0.75rem;
+  }
+  .mob-btn {
+    background: var(--black); color: var(--gold); border: none;
+    width: 36px; height: 36px; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  /* EMAIL SIGNUP MODAL */
+  .email-modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(17,17,17,0.5); z-index: 300;
+    align-items: center; justify-content: center;
+  }
+  .email-modal-card {
+    background: #FAF7F2; border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 4px; padding: 2.5rem 2.25rem;
+    max-width: 420px; width: calc(100% - 3rem); position: relative;
+  }
+  .email-modal-close {
+    position: absolute; top: 0.9rem; right: 1.1rem;
+    font-family: 'Inter', sans-serif; font-size: 20px;
+    color: #555555; background: none; border: none; cursor: pointer;
+  }
+  .email-modal-label {
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+    color: #C9A84C; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .email-modal-desc {
+    font-family: 'Lora', serif; font-size: 16px;
+    color: #555555; line-height: 1.7; margin-bottom: 1.75rem;
+  }
+  .email-modal-input {
+    width: 100%; font-family: 'Lora', serif; font-size: 15px;
+    color: #111111; background: #FAF7F2;
+    border: 1px solid rgba(85,85,85,0.3); border-radius: 2px;
+    padding: 0.75rem 0.85rem; margin-bottom: 1.1rem; box-sizing: border-box;
+  }
+  .email-modal-submit {
+    width: 100%; font-family: 'Cormorant Garamond', serif; font-size: 16px;
+    font-weight: 700; letter-spacing: 0.04em; color: #111111;
+    background: transparent; border: 1px solid #C9A84C;
+    border-radius: 2px; padding: 0.8rem; cursor: pointer;
+  }
+  .email-modal-note {
+    font-family: 'Lora', serif; font-size: 13px; font-style: italic;
+    color: #555555; margin-top: 1rem; text-align: center;
+  }
+  .email-modal-status {
+    font-family: 'Lora', serif; font-size: 14px;
+    margin-top: 0.7rem; text-align: center; min-height: 1.2em;
+  }
+  .email-modal-status.error { color: #b85c5c; }
+  .email-modal-status.field-error { color: #b85c5c; }
+  .email-modal-success {
+    font-family: 'Lora', serif; font-size: 14px;
+    color: #8a7040; text-align: center; padding: 1.25rem 0;
+    line-height: 1.7;
+  }
 
   @media (max-width: 768px) {
     .banner { display: none; }
     .left-nav { display: none; }
     .hamburger { display: flex; }
     .mobile-sidebar { display: flex; }
+    .mobile-actions { display: flex; }
     .main { margin-left: 0; padding-top: 2rem; }
     .reading-col { padding: 0 1.25rem 4rem; max-width: 100%; }
     .archive-wrap { padding: 0 1.25rem 4rem; }
@@ -660,7 +750,7 @@
           <span class="cover-whats">What's the</span>
           <span class="cover-bet">bet?</span>
         </div>
-        <div class="cover-tagline">Ecosystem review &nbsp;·&nbsp; Every week.</div>
+        <div class="cover-tagline">Ecosystem review &nbsp;·&nbsp; <span class="cover-tagline-break">Every week.</span></div>
       </div>
     </div>
     <div class="cover-right">
@@ -684,6 +774,7 @@
 </div>
 
 <header class="banner">
+  <button class="banner-subscribe" onclick="_openEmailModal()">✉</button>
   <div class="banner-logo-group">
     <div class="banner-logotype">
       <span class="whats-the">What's the</span>
@@ -700,7 +791,7 @@
   <button class="nav-tab" data-page="about">About</button>
 </nav>
 
-<button class="hamburger" id="hamburger">☰</button>
+<button class="hamburger" id="hamburgerAlt" style="display:none">☰</button>
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-sidebar" id="mobileSidebar">
   <div class="mobile-logotype">
@@ -723,13 +814,17 @@
         <span class="week"><!-- WTB:EDITION_LABEL -->W2 June 2026<!-- /WTB:EDITION_LABEL --></span>
         <span class="read-time"><!-- WTB:READING_TIME -->6 min read<!-- /WTB:READING_TIME --></span>
       </div>
+      <div class="mobile-actions" id="mobileActions">
+        <button class="mob-btn" id="emailBtn" aria-label="Subscribe">✉</button>
+        <button class="mob-btn" id="hamburger" aria-label="Menu">☰</button>
+      </div>
 
       <!-- Card 1 -->
       <div class="startup-card" id="c1">
         <div class="company-name"><!-- WTB:C1_NAME -->Truefan AI<!-- /WTB:C1_NAME --></div>
         <!-- WTB:C1_PHOTO --><img class="founder-photo" src="images/Truefan_AI.jpg" alt="TrueFan AI"><!-- /WTB:C1_PHOTO -->
         <div class="specs"><!-- WTB:C1_SPECS -->
-          AI <span class="dot">·</span> ₹96 CR <span class="dot">·</span> Series A <span class="dot">·</span> Delhi-NCR <span class="dot">·</span> Baring Private Equity Partners
+          <span class="spec-item">AI</span> <span class="dot">·</span> <span class="spec-item">₹96 CR</span> <span class="dot">·</span> <span class="spec-item">Series A</span> <span class="dot">·</span> <span class="spec-item">Delhi-NCR</span> <span class="dot">·</span> <span class="spec-item">Baring Private Equity Partners</span>
         <!-- /WTB:C1_SPECS --></div>
         <div class="section-label">The Setup</div>
         <div class="section-body"><!-- WTB:C1_SETUP -->TrueFan AI builds an enterprise generative video platform that creates hyper-personalised AI videos featuring celebrities and brands, pivoting from its original 2020 model as a consumer celebrity-fan engagement app where users could request personalised celebrity video messages.<!-- /WTB:C1_SETUP --></div>
@@ -747,7 +842,7 @@
         <div class="company-name"><!-- WTB:C2_NAME -->Immuneel Therapeutics<!-- /WTB:C2_NAME --></div>
         <!-- WTB:C2_PHOTO --><img class="founder-photo" src="images/immuneel_therapeutics.jpg" alt="Immuneel Therapeutics founders"><!-- /WTB:C2_PHOTO -->
         <div class="specs"><!-- WTB:C2_SPECS -->
-          Biotech <span class="dot">·</span> 10.5M USD <span class="dot">·</span> Series B <span class="dot">·</span> Bengaluru <span class="dot">·</span> Dharana Capital
+          <span class="spec-item">Biotech</span> <span class="dot">·</span> <span class="spec-item">10.5M USD</span> <span class="dot">·</span> <span class="spec-item">Series B</span> <span class="dot">·</span> <span class="spec-item">Bengaluru</span> <span class="dot">·</span> <span class="spec-item">Dharana Capital</span>
         <!-- /WTB:C2_SPECS --></div>
         <div class="section-label">The Setup</div>
         <div class="section-body"><!-- WTB:C2_SETUP -->Immuneel Therapeutics develops cell and gene therapies for cancer, and recently commercialised Qartemi, described as India&#x27;s first approved <span class="term" data-term="CAR-T therapy" data-def="Chimeric antigen receptor T-cell therapy, a form of cancer treatment in which a patient's own immune cells are genetically engineered in a lab to recognise and attack cancer cells before being reinfused.">CAR-T therapy</span> for Non-Hodgkin Lymphoma and leukemia.<!-- /WTB:C2_SETUP --></div>
@@ -765,7 +860,7 @@
         <div class="company-name"><!-- WTB:C3_NAME -->Wingreens<!-- /WTB:C3_NAME --></div>
         <!-- WTB:C3_PHOTO --><img class="founder-photo" src="images/wingreens.jpg" alt="Wingreens founders"><!-- /WTB:C3_PHOTO -->
         <div class="specs"><!-- WTB:C3_SPECS -->
-          Packaged food and beverage <span class="dot">·</span> 12.6M USD <span class="dot">·</span> Series D <span class="dot">·</span> Delhi-NCR <span class="dot">·</span> Ashish Kacholia (Angel)
+          <span class="spec-item">Packaged food and beverage</span> <span class="dot">·</span> <span class="spec-item">12.6M USD</span> <span class="dot">·</span> <span class="spec-item">Series D</span> <span class="dot">·</span> <span class="spec-item">Delhi-NCR</span> <span class="dot">·</span> <span class="spec-item">Ashish Kacholia (Angel)</span>
         <!-- /WTB:C3_SPECS --></div>
         <div class="section-label">The Setup</div>
         <div class="section-body"><!-- WTB:C3_SETUP -->Wingreens is a multi-brand better-for-you food and beverage platform operating Wingreens Farms, Raw Pressery, and newly acquired Safe Harvest, selling dips, juices, snacks, and health staples through online and offline channels.<!-- /WTB:C3_SETUP --></div>
@@ -796,6 +891,7 @@
           <div class="archive-names">Ctruh<br>Sahi<br>Snabbit</div>
           <button class="read-btn" onclick="window.location='archive/edition-2026-06-09.html'">Read Edition</button>
         </div>
+        <p class="archive-placeholder">No past editions yet!</p>
       </div>
     </div>
   </div>
@@ -852,7 +948,6 @@
         <div class="bets-verdict-ps">A week doesn't necessarily produce one of each — I might go two INs and an Unconvinced, or three Watching. The verdicts are strictly based on the startups, not a quota.</div>
       </div>
 
-      
 
     </div>
   </div>
@@ -861,6 +956,21 @@
 
 <button class="back-top" id="backTop">↑</button>
 
+<div class="email-modal-overlay" id="emailOverlay">
+  <div class="email-modal-card">
+    <button class="email-modal-close" id="emailClose">×</button>
+    <div class="email-modal-label">Never miss an edition</div>
+    <p class="email-modal-desc">Get future weeks' editions straight to your inbox!</p>
+    <div id="emailForm">
+      <input class="email-modal-input" id="emailInput" type="email" placeholder="your@email.com">
+      <button class="email-modal-submit" id="emailSubmit">Subscribe</button>
+      <p class="email-modal-note">No spam, unsubscribe anytime.</p>
+      <p class="email-modal-status" id="emailStatus"></p>
+    </div>
+    <p class="email-modal-success" id="emailSuccess" style="display:none">You're subscribed! See you for the next bet!</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
   history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
@@ -868,12 +978,17 @@
   const progressBar = document.getElementById('progress-bar');
   const backTop = document.getElementById('backTop');
   const hamburger = document.getElementById('hamburger');
+  const hamburgerAlt = document.getElementById('hamburgerAlt');
+  const emailBtn = document.getElementById('emailBtn');
+  const emailOverlay = document.getElementById('emailOverlay');
+  const emailClose = document.getElementById('emailClose');
   const mobileSidebar = document.getElementById('mobileSidebar');
   const mobileOverlay = document.getElementById('mobileOverlay');
   const cover = document.getElementById('cover');
   const chevrons = document.getElementById('chevrons');
   const firstCard = document.getElementById('c1');
   let coverLifted = false;
+  let sidebarOpen = false;
   let startY = 0;
 
   // --- Cover logic ---
@@ -903,10 +1018,17 @@
   }, { passive: true });
 
   // --- Page switching ---
+  function updateHamburgerAlt() {
+    const activePage = document.querySelector('.page.active');
+    const isThisWeek = activePage && activePage.id === 'this-week';
+    hamburgerAlt.style.display = (coverLifted && !isThisWeek) ? 'flex' : 'none';
+  }
+
   function switchPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
     window.scrollTo(0, 0);
+    updateHamburgerAlt();
   }
 
   document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -922,8 +1044,7 @@
       document.querySelectorAll('.mobile-nav-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       switchPage(tab.dataset.page);
-      mobileSidebar.style.transform = 'translateX(-100%)';
-      mobileOverlay.style.display = 'none';
+      closeSidebar();
     });
   });
 
@@ -967,14 +1088,73 @@
   });
 
   // --- Mobile sidebar ---
-  hamburger.addEventListener('click', () => {
+  function openSidebar() {
+    sidebarOpen = true;
     mobileSidebar.style.transform = 'translateX(0)';
     mobileOverlay.style.display = 'block';
-  });
-
-  mobileOverlay.addEventListener('click', () => {
+  }
+  function closeSidebar() {
+    sidebarOpen = false;
     mobileSidebar.style.transform = 'translateX(-100%)';
     mobileOverlay.style.display = 'none';
+  }
+  function toggleSidebar() { sidebarOpen ? closeSidebar() : openSidebar(); }
+
+  hamburger.addEventListener('click', toggleSidebar);
+  hamburgerAlt.addEventListener('click', toggleSidebar);
+  mobileOverlay.addEventListener('click', closeSidebar);
+
+  // --- Supabase client ---
+  const _sb = window.supabase.createClient(
+    'https://majeliexbhmfmexeydxh.supabase.co',
+    'sb_publishable_VpwHsl2nHSo5tCufbpyX2Q_ykhh0A24'
+  );
+
+  // --- Email modal ---
+  const emailInput  = document.getElementById('emailInput');
+  const emailSubmit = document.getElementById('emailSubmit');
+  const emailForm   = document.getElementById('emailForm');
+  const emailStatus = document.getElementById('emailStatus');
+  const emailSuccess = document.getElementById('emailSuccess');
+
+  function _openEmailModal() {
+    emailInput.value = '';
+    emailStatus.textContent = '';
+    emailStatus.className = 'email-modal-status';
+    emailForm.style.display = 'block';
+    emailSuccess.style.display = 'none';
+    emailOverlay.style.display = 'flex';
+  }
+
+  function _closeEmailModal() {
+    emailOverlay.style.display = 'none';
+  }
+
+  emailBtn.addEventListener('click', _openEmailModal);
+  emailClose.addEventListener('click', _closeEmailModal);
+  emailOverlay.addEventListener('click', (e) => {
+    if (e.target === emailOverlay) _closeEmailModal();
+  });
+
+  emailSubmit.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailStatus.textContent = 'Please enter a valid email address.';
+      emailStatus.className = 'email-modal-status field-error';
+      return;
+    }
+    emailStatus.textContent = '';
+    emailStatus.className = 'email-modal-status';
+    emailSubmit.disabled = true;
+    const { error } = await _sb.from('subscribers').insert({ email });
+    emailSubmit.disabled = false;
+    if (!error || (error.code === '23505')) {
+      emailForm.style.display = 'none';
+      emailSuccess.style.display = 'block';
+    } else {
+      emailStatus.textContent = 'Something went wrong, try again.';
+      emailStatus.className = 'email-modal-status error';
+    }
   });
 </script>
 </body>
