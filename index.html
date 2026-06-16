@@ -723,6 +723,30 @@
     line-height: 1.7;
   }
 
+  /* ARCHIVE OVERLAY */
+  .archive-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(17,17,17,0.5); z-index: 300;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .archive-overlay-window {
+    background: var(--cream); border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 4px; max-width: 720px; width: 100%;
+    max-height: 85vh; overflow-y: auto; position: relative;
+    padding: 3rem 2.5rem;
+  }
+  .archive-overlay-close {
+    position: absolute; top: 1rem; right: 1.25rem;
+    font-family: 'Inter', sans-serif; font-size: 22px;
+    color: #555555; background: none; border: none; cursor: pointer;
+    z-index: 1;
+  }
+  .archive-overlay-message {
+    font-family: 'Lora', serif; font-size: 15px;
+    color: var(--muted); text-align: center; padding: 2rem 0;
+  }
+
   @media (max-width: 768px) {
     .banner { display: none; }
     .left-nav { display: none; }
@@ -811,7 +835,7 @@
   <div class="page active" id="this-week">
     <div class="reading-col">
       <div class="edition-meta">
-        <span class="week"><!-- WTB:EDITION_LABEL -->W2 June 2026<!-- /WTB:EDITION_LABEL --></span>
+        <span class="week"><!-- WTB:EDITION_LABEL -->W2 June 2026<!-- /WTB:EDITION_LABEL --></span><span class="edition-date-hidden" style="display:none"><!-- WTB:EDITION_DATE -->2026-06-16<!-- /WTB:EDITION_DATE --></span>
         <span class="read-time"><!-- WTB:READING_TIME -->6 min read<!-- /WTB:READING_TIME --></span>
       </div>
       <div class="mobile-actions" id="mobileActions">
@@ -889,7 +913,7 @@
         <div class="archive-card">
           <div class="archive-date">W1 June 2026</div>
           <div class="archive-names">Ctruh<br>Sahi<br>Snabbit</div>
-          <button class="read-btn" onclick="window.location='archive/edition-2026-06-09.html'">Read Edition</button>
+          <button class="read-btn" onclick="openArchiveEdition('archive/edition-2026-06-09.html')">Read Edition</button>
         </div>
         <p class="archive-placeholder">No past editions yet!</p>
       </div>
@@ -968,6 +992,13 @@
       <p class="email-modal-status" id="emailStatus"></p>
     </div>
     <p class="email-modal-success" id="emailSuccess" style="display:none">You're subscribed! See you for the next bet!</p>
+  </div>
+</div>
+
+<div class="archive-overlay" id="archiveOverlay">
+  <div class="archive-overlay-window">
+    <button class="archive-overlay-close" id="archiveOverlayClose">×</button>
+    <div id="archiveOverlayContent"></div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -1155,6 +1186,32 @@
       emailStatus.textContent = 'Something went wrong, try again.';
       emailStatus.className = 'email-modal-status error';
     }
+  });
+
+  // --- Archive overlay ---
+  const archiveOverlay = document.getElementById('archiveOverlay');
+  const archiveOverlayContent = document.getElementById('archiveOverlayContent');
+  const archiveOverlayClose = document.getElementById('archiveOverlayClose');
+
+  async function openArchiveEdition(fragmentPath) {
+    archiveOverlayContent.innerHTML = '<p class="archive-overlay-message">Loading…</p>';
+    archiveOverlay.style.display = 'flex';
+    try {
+      const res = await fetch(fragmentPath);
+      if (!res.ok) throw new Error('Fetch failed: ' + res.status);
+      archiveOverlayContent.innerHTML = await res.text();
+    } catch (err) {
+      archiveOverlayContent.innerHTML = '<p class="archive-overlay-message">Couldn\'t load this edition. Please try again.</p>';
+    }
+  }
+
+  function _closeArchiveOverlay() {
+    archiveOverlay.style.display = 'none';
+  }
+
+  archiveOverlayClose.addEventListener('click', _closeArchiveOverlay);
+  archiveOverlay.addEventListener('click', (e) => {
+    if (e.target === archiveOverlay) _closeArchiveOverlay();
   });
 </script>
 </body>
